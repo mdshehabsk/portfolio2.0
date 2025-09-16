@@ -21,10 +21,12 @@ export default function Home() {
 
       {/* Hero Section */}
       <Hero/>
-      <ProjectsSection/>
+          <AboutSection/>
+
+            <ExperienceSection/>
       <Skill/>
-      <AboutSection/>
-      <ExperienceSection/>
+  
+      <ProjectsSection/>
     </div>
   );
 }
