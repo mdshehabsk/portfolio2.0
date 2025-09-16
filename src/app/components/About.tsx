@@ -35,7 +35,7 @@ export default function AboutSection() {
             About Me
           </h2>
           <p className="text-xl text-text-secondary max-w-2xl mx-auto leading-relaxed">
-            A passionate full stack developer crafting digital experiences
+             Full stack developer with excellent communication skill
           </p>
         </div>
 

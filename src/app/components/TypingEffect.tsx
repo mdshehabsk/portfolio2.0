@@ -9,10 +9,9 @@ const TypingEffect: React.FC = () => {
   const [isTyping, setIsTyping] = useState<boolean>(true)
 
   const typingTexts = useMemo<string[]>(() => [
-    'building modern websites',
-    'creating robust APIs',
+    'building websites solutions',
+    'creating blazing fast APIs',
     'deploying scalable solutions',
-    'crafting user experiences',
   ], [])
 
 

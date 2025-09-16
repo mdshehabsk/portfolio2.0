@@ -330,8 +330,7 @@ const Hero = () => {
               transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" }}
               className="text-lg md:text-xl mb-10 max-w-2xl leading-relaxed mx-auto text-gray-600 dark:text-gray-400"
             >
-              {`Passionate about creating digital experiences that combine beautiful design 
-              with powerful functionality. Let's build something amazing together.`}
+              {`Love To Work With Complex Challenge, Build And Supply Innovation Solution With Cutting Edge Technology At The Market`}
             </motion.p>
 
             {/* Buttons */}
