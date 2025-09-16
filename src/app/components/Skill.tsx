@@ -1,110 +1,61 @@
-import { useState } from 'react';
-import { motion } from 'motion/react';
-import { 
-  Code, 
-  Database, 
-  Server, 
-  Globe, 
-  GitBranch, 
-  Container, 
-  Cloud, 
-  Zap,
-  Layers,
-  Box,
-  Settings,
-  FileCode,
-  Workflow,
-  Search
-} from 'lucide-react';
 
-interface Skill {
-  name: string;
-  icon: React.ComponentType<{ size?: number; className?: string }>;
-}
+"use client";
 
-interface SkillCategory {
-  title: string;
-  skills: Skill[];
-  color: 'emerald' | 'blue' | 'purple' | 'orange';
-}
+import { motion } from "motion/react";
+import javascript from "@/image/skills/javascript.png";
+import typescript from "@/image/skills/typescript.png";
+import nodejs from "@/image/skills/node.png";
+import expressjs from "@/image/skills/express.png";
+import mongodb from "@/image/skills/mongodb.png";
+import nextjs from "@/image/skills/nextjs.png";
+import reactjs from "@/image/skills/react.png";
+import reduxjs from "@/image/skills/redux.png";
+import tailwindcss from "@/image/skills/tailwind.png";
+import prisma from "@/image/skills/prisma.png";
+import nestjs from "@/image/skills/nestjs.png";
+import postgresql from "@/image/skills/postgresql.png";
+import firebase from "@/image/skills/firebase.png";
+import git from "@/image/skills/git.png";
+import docker from "@/image/skills/docker.png";
+import figma from "@/image/skills/figma.png";
+import github from "@/image/skills/github.png";
+import aws from "@/image/skills/aws.png";
+import linux from "@/image/skills/linux.png";
+import postman from "@/image/skills/postman.png";
+import reactQuery from "@/image/skills/ReactQueryIcon.png";
+import zustand from "@/image/skills/zustand.jpg";
+import server from "@/image/skills/server.png";
+import ci from "@/image/skills/ci-cd.png";
 
-interface Category {
-  id: string;
-  label: string;
-}
+import Image from "next/image";
 
 const SkillsSection = () => {
-  const [activeCategory, setActiveCategory] = useState('all');
-
-  const skillCategories: Record<string, SkillCategory> = {
-    frontend: {
-      title: 'Frontend',
-      color: 'emerald',
-      skills: [
-        { name: 'JavaScript', icon: FileCode },
-        { name: 'TypeScript', icon: Code },
-        { name: 'React.js', icon: Layers },
-        { name: 'Next.js', icon: Globe },
-        { name: 'Redux', icon: Box },
-        { name: 'Zustand', icon: Zap },
-        { name: 'RTK Query', icon: Search },
-        { name: 'React Query', icon: Database }
-      ]
-    },
-    backend: {
-      title: 'Backend',
-      color: 'blue',
-      skills: [
-        { name: 'Node.js', icon: Server },
-        { name: 'Nest.js', icon: Settings },
-        { name: 'Express.js', icon: Workflow }
-      ]
-    },
-    database: {
-      title: 'Database',
-      color: 'purple',
-      skills: [
-        { name: 'MongoDB', icon: Database },
-        { name: 'PostgreSQL', icon: Database }
-      ]
-    },
-    devops: {
-      title: 'DevOps & Tools',
-      color: 'orange',
-      skills: [
-        { name: 'GitHub', icon: GitBranch },
-        { name: 'Docker', icon: Container },
-        { name: 'CI/CD', icon: Workflow },
-        { name: 'VPS', icon: Server },
-        { name: 'AWS', icon: Cloud },
-        { name: 'Postman', icon: Search }
-      ]
-    }
-  };
-
-  const getAllSkills = () => {
-    return Object.values(skillCategories).flatMap(category => 
-      category.skills.map(skill => ({ ...skill, category: category.title, color: category.color }))
-    );
-  };
-
-  const getFilteredSkills = () => {
-    if (activeCategory === 'all') {
-      return getAllSkills();
-    }
-    return skillCategories[activeCategory]?.skills.map(skill => ({
-      ...skill,
-      category: skillCategories[activeCategory].title,
-      color: skillCategories[activeCategory].color
-    })) || [];
-  };
-
-  const categories: Category[] = [
-    { id: 'all', label: 'All Skills' },
-    { id: 'frontend', label: 'Frontend' },
-    { id: 'backend', label: 'Backend' },
-    { id: 'database', label: 'Database' },
-    { id: 'devops', label: 'DevOps & Tools' }
+  const skills = [
+    { name: "JavaScript", image: javascript },
+    { name: "TypeScript", image: typescript },
+    { name: "React.js", image: reactjs },
+    { name: "Next.js", image: nextjs },
+    { name: "Redux", image: reduxjs },
+    { name: "Tailwind CSS", image: tailwindcss },
+    { name: "Node.js", image: nodejs },
+    { name: "Nest.js", image: nestjs },
+    { name: "Express.js", image: expressjs },
+    { name: "MongoDB", image: mongodb },
+    { name: "PostgreSQL", image: postgresql },
+    { name: "Prisma", image: prisma },
+    { name: "Firebase", image: firebase },
+    { name: "Git", image: git },
+    { name: "GitHub", image: github },
+    { name: "Docker", image: docker },
+    { name: "AWS", image: aws },
+    { name: "Linux", image: linux },
+    { name: "Postman", image: postman },
+    { name: "Figma", image: figma },
+    { name: "Zustand", image: zustand },
+    { name: "RTK Query", image: reduxjs },
+    { name: "React Query", image: reactQuery },
+    { name: "CI/CD", image: ci },
+    { name: "VPS", image: server },
   ];
 
   const containerVariants = {
@@ -112,52 +63,15 @@ const SkillsSection = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
-      }
-    }
+        staggerChildren: 0.08,
+      },
+    },
   };
 
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.5, ease: "easeOut" }
-    }
-  };
 
-  const getColorClasses = (color: string, type: 'bg' | 'text' | 'border' | 'hover' = 'bg') => {
-    const colors: Record<string, Record<string, string>> = {
-      emerald: {
-        bg: 'bg-emerald-500',
-        text: 'text-emerald-600 dark:text-emerald-400',
-        border: 'border-emerald-500',
-        hover: 'hover:bg-emerald-50 dark:hover:bg-emerald-900/30'
-      },
-      blue: {
-        bg: 'bg-blue-500',
-        text: 'text-blue-600 dark:text-blue-400',
-        border: 'border-blue-500',
-        hover: 'hover:bg-blue-50 dark:hover:bg-blue-900/30'
-      },
-      purple: {
-        bg: 'bg-purple-500',
-        text: 'text-purple-600 dark:text-purple-400',
-        border: 'border-purple-500',
-        hover: 'hover:bg-purple-50 dark:hover:bg-purple-900/30'
-      },
-      orange: {
-        bg: 'bg-orange-500',
-        text: 'text-orange-600 dark:text-orange-400',
-        border: 'border-orange-500',
-        hover: 'hover:bg-orange-50 dark:hover:bg-orange-900/30'
-      }
-    };
-    return colors[color]?.[type] || colors.emerald[type];
-  };
 
   return (
-    <section className="py-20 px-6 bg-white dark:bg-gray-800 transition-colors duration-300">
+    <section className="py-16 px-4 bg-white dark:bg-gray-900 transition-colors duration-300" id="skills">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <motion.div
@@ -165,102 +79,94 @@ const SkillsSection = () => {
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
             Skills & Technologies
           </h2>
           <p className="text-xl max-w-3xl mx-auto text-gray-600 dark:text-gray-400">
-            A comprehensive toolkit built through years of hands-on development experience
+            A comprehensive toolkit built through years of hands-on development
+            experience
           </p>
         </motion.div>
 
-        {/* Category Filters */}
+        {/* Featured Skills (JavaScript and TypeScript) */}
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2, duration: 0.6 }}
-          className="flex flex-wrap justify-center gap-4 mb-12"
+          className="flex justify-center gap-4 mb-4 p-0 m-0" // Explicitly remove padding/margin
         >
-          {categories.map((category) => (
-            <button
-              key={category.id}
-              onClick={() => setActiveCategory(category.id)}
-              className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
-                activeCategory === category.id
-                  ? 'bg-emerald-600 text-white shadow-lg'
-                  : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
-              }`}
+          {skills.slice(0, 2).map((skill, index) => (
+            <motion.div
+              key={index}
+              className="cursor-pointer group flex flex-col gap-2 rounded-xl backdrop-blur-sm bg-white/80 dark:bg-gray-800/80 transition-all duration-300 p-4" // Added padding
             >
-              {category.label}
-            </button>
+              <div className="h-[200px] w-full flex items-center justify-center">
+                <Image
+                  src={skill?.image}
+                  alt={skill.name}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                />
+              </div>
+              <h3 className="text-lg font-medium text-center text-gray-900 dark:text-white">
+                {skill.name}
+              </h3>
+            </motion.div>
           ))}
         </motion.div>
 
         {/* Skills Grid */}
         <motion.div
-          key={activeCategory}
           variants={containerVariants}
           initial="hidden"
-          animate="visible"
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 gap-3"
         >
-          {getFilteredSkills().map((skill, index) => {
-            const IconComponent = skill.icon;
+          {skills.slice(2).map((skill, index) => {
             return (
-              <motion.div
-                key={`${skill.name}-${index}`}
-                variants={itemVariants}
-                whileHover={{ y: -4 }}
-                className={`relative p-6 rounded-xl border transition-all duration-300 group cursor-pointer ${
-                  getColorClasses(skill.color, 'border') + ' ' +
-                  (activeCategory === 'all' ? getColorClasses(skill.color, 'hover') : '') + ' ' +
-                  'bg-white dark:bg-gray-700 hover:shadow-lg'
-                }`}
-              >
-                {/* Skill Icon */}
-                <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-300 ${getColorClasses(skill.color, 'bg')}`}>
-                  <IconComponent 
-                    size={24} 
-                    className={getColorClasses(skill.color, 'text')}
-                  />
-                </div>
-
-                {/* Skill Name */}
-                <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">
-                  {skill.name}
-                </h3>
-
-                {/* Category Badge */}
-                <div className={`inline-block px-2 py-1 rounded text-xs font-medium ${getColorClasses(skill.color, 'hover')}`}>
-                  {skill.category}
-                </div>
-              </motion.div>
+              <div key={index}>
+                {skill?.name === "Zustand" ? (
+                  <motion.div
+                    key={`${skill.name}-${index}`}
+                    whileHover={{ y: -4, scale: 1.05 }}
+                    className="group  box-border rounded-lg backdrop-blur-md bg-white/70 dark:bg-gray-800/70 border border-gray-200/50 dark:border-gray-700/50 hover:bg-white/90 dark:hover:bg-gray-800/90 hover:border-gray-300/70 dark:hover:border-gray-600/70 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
+                  >
+                    <div className=" mx-auto  flex items-center justify-center rounded-md overflow-hidden">
+                      <Image
+                        src={skill.image}
+                        alt={skill.name}
+                        className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
+                      />
+                    </div>
+                    <h3 className=" my-2 text-sm font-medium text-center text-gray-900 dark:text-white leading-tight">
+                      {skill.name}
+                    </h3>
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key={`${skill.name}-${index}`}
+                    animate="active"
+                    whileHover={{ y: -4, scale: 1.05 }}
+                    className="group p-4 rounded-lg backdrop-blur-md bg-white/70 dark:bg-gray-800/70 border border-gray-200/50 dark:border-gray-700/50 hover:bg-white/90 dark:hover:bg-gray-800/90 hover:border-gray-300/70 dark:hover:border-gray-600/70 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer "
+                  >
+                    <div className="w-12 h-12 mx-auto mb-2 flex items-center justify-center rounded-md overflow-hidden">
+                      <Image
+                        src={skill.image}
+                        alt={skill.name}
+                        className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
+                      />
+                    </div>
+                    <h3 className="text-sm font-medium text-center text-gray-900 dark:text-white leading-tight">
+                      {skill.name}
+                    </h3>
+                  </motion.div>
+                )}
+              </div>
             );
           })}
-        </motion.div>
-
-        {/* Skills Summary */}
-        <motion.div
-          initial={{ y: 30, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4, duration: 0.6 }}
-          className="mt-16 text-center"
-        >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {Object.entries(skillCategories).map(([key, category]) => (
-              <div key={key} className="p-6 rounded-lg bg-gray-50 dark:bg-gray-700">
-                <div className="text-3xl font-bold mb-2 text-gray-700 dark:text-gray-300">
-                  {category.skills.length}
-                </div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">
-                  {category.title}
-                </div>
-              </div>
-            ))}
-          </div>
         </motion.div>
       </div>
     </section>
