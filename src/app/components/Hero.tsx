@@ -343,7 +343,7 @@ const Hero = () => {
       <motion.a
         whileHover={{ scale: 1.05, y: -2, boxShadow: "0 4px 20px rgba(59, 130, 246, 0.4)" }}
         whileTap={{ scale: 0.95 }}
-        className="px-8 py-4 bg-gray-700 dark:bg-gray-600 cursor-pointer text-white rounded-lg font-semibold text-lg shadow-lg hover:bg-blue-500 dark:hover:bg-blue-500 transition-all duration-200 backdrop-blur-sm flex items-center gap-2"
+        className="px-8 py-4  dark:bg-gray-600 cursor-pointer text-white rounded-lg font-semibold text-lg shadow-lg bg-blue-500  transition-all duration-200 backdrop-blur-sm flex items-center gap-2"
         href='https://drive.google.com/file/d/14G5RhIyzOxblgLkL5BlxVY__L1vUqJge/view?usp=drive_link'
         target='_blank'
       >
@@ -353,7 +353,7 @@ const Hero = () => {
       <motion.a
         whileHover={{ scale: 1.05, y: -2 }}
         whileTap={{ scale: 0.95 }}
-        className="px-8 py-4 rounded-lg font-semibold text-lg border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-blue-500 dark:hover:border-blue-400 hover:text-blue-500 dark:hover:text-blue-400 transition-all duration-200 cursor-pointer bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm flex items-center gap-2"
+        className="px-8 py-4 rounded-lg font-semibold text-lg border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-blue-500 dark:hover:border-blue-400 hover:text-blue-500 dark:hover:text-blue-400 transition-all duration-200 cursor-pointer bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm flex items-center gap-2"
         href="https://cal.com/mdshehabsk"
         target='_blank'
       >
