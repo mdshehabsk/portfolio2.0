@@ -7,7 +7,7 @@ export default function AboutSection() {
     {
       name: 'LinkedIn',
       icon: Linkedin,
-      url: 'https://linkedin.com/in/shehabuddin',
+      url: 'https://www.linkedin.com/in/mdshehabsk/',
     },
     {
       name: 'GitHub',
