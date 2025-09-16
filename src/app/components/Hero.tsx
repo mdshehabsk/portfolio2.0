@@ -343,7 +343,7 @@ const Hero = () => {
       <motion.a
         whileHover={{ scale: 1.05, y: -2, boxShadow: "0 4px 20px rgba(59, 130, 246, 0.4)" }}
         whileTap={{ scale: 0.95 }}
-        className="px-8 py-4  dark:bg-gray-600 cursor-pointer text-white rounded-lg font-semibold text-lg shadow-lg bg-blue-500  transition-all duration-200 backdrop-blur-sm flex items-center gap-2"
+        className="px-8 py-4   cursor-pointer text-white rounded-lg font-semibold text-lg shadow-lg bg-blue-500  transition-all duration-200 backdrop-blur-sm flex items-center gap-2"
         href='https://drive.google.com/file/d/14G5RhIyzOxblgLkL5BlxVY__L1vUqJge/view?usp=drive_link'
         target='_blank'
       >
