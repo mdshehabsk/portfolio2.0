@@ -6,8 +6,10 @@ import javascript from "@/image/skills/javascript.png";
 import typescript from "@/image/skills/typescript.png";
 import nodejs from "@/image/skills/node.png";
 import expressjs from "@/image/skills/express.png";
+import expressJsDark from '@/image/skills/express-dark.png'
 import mongodb from "@/image/skills/mongodb.png";
 import nextjs from "@/image/skills/nextjs.png";
+import nextjsDark from '@/image/skills/nextjs-dark.png'
 import reactjs from "@/image/skills/react.png";
 import reduxjs from "@/image/skills/redux.png";
 import tailwindcss from "@/image/skills/tailwind.png";
@@ -28,18 +30,21 @@ import server from "@/image/skills/server.png";
 import ci from "@/image/skills/ci-cd.png";
 
 import Image from "next/image";
+import { useTheme } from "@/hooks/useTheme";
+
 
 const SkillsSection = () => {
+  const {theme} = useTheme()
   const skills = [
     { name: "JavaScript", image: javascript },
     { name: "TypeScript", image: typescript },
     { name: "React.js", image: reactjs },
-    { name: "Next.js", image: nextjs },
+    { name: "Next.js", image: theme === 'dark' ? nextjs : nextjsDark },
     { name: "Redux", image: reduxjs },
     { name: "Tailwind CSS", image: tailwindcss },
     { name: "Node.js", image: nodejs },
     { name: "Nest.js", image: nestjs },
-    { name: "Express.js", image: expressjs },
+    { name: "Express.js", image: theme === 'dark' ? expressjs : expressJsDark },
     { name: "MongoDB", image: mongodb },
     { name: "PostgreSQL", image: postgresql },
     { name: "Prisma", image: prisma },
@@ -67,6 +72,8 @@ const SkillsSection = () => {
       },
     },
   };
+
+
 
 
 

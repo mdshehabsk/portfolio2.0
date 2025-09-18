@@ -1,8 +1,9 @@
 'use client';
 
+import { useTheme } from '@/hooks/useTheme';
 import { Moon, Sun, User, Briefcase, Code, FolderOpen } from 'lucide-react';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const links = [
   { label: 'About',      link: '#about',     icon: User },
@@ -12,30 +13,9 @@ const links = [
 ];
 
 const Navbar = () => {
-  // Start with a safe default (false) and read localStorage only on client
-  const [isDark, setIsDark] = useState(false);
+  const {theme,toggleTheme} = useTheme()
 
-  // Read saved theme once the component mounts in the browser
-  useEffect(() => {
-    const stored = localStorage.getItem('theme');
-    if (stored === 'dark') {
-      setIsDark(true);
-      document.body.classList.add('dark');
-    }
-  }, []);
 
-  // Apply theme whenever isDark changes
-  useEffect(() => {
-    if (isDark) {
-      document.body.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.body.classList.remove('dark');
-      localStorage.removeItem('theme');
-    }
-  }, [isDark]);
-
-  const toggleTheme = () => setIsDark((prev) => !prev);
 
   return (
     <>
@@ -65,7 +45,7 @@ const Navbar = () => {
             onClick={toggleTheme}
             className="p-2 rounded-lg transition-all duration-200 text-gray-600 dark:text-yellow-400 hover:bg-gray-100 dark:hover:bg-gray-700 hover:scale-110 active:scale-95 cursor-pointer"
           >
-            {isDark ? <Sun size={20} /> : <Moon size={20} />}
+            {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
           </button>
         </div>
       </nav>
@@ -94,7 +74,7 @@ const Navbar = () => {
               onClick={toggleTheme}
               className="flex flex-col items-center space-y-1 p-2 rounded-lg transition-all duration-200 hover:bg-gray-100/60 dark:hover:bg-gray-800/60 active:scale-95 group"
             >
-              {isDark ? (
+              {theme === 'dark' ? (
                 <Sun size={20} className="text-yellow-500 group-hover:text-yellow-400 transition-colors duration-200" />
               ) : (
                 <Moon size={20} className="text-gray-600 group-hover:text-gray-800 transition-colors duration-200" />
