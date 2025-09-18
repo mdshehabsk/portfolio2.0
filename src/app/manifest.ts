@@ -14,6 +14,11 @@ export default function manifest(): MetadataRoute.Manifest {
         src: '/MD_SHEHAB_UDDIN.png',
         sizes: '192x192',
         type: 'image/png',
+      },
+      {
+        src: '/MD_SHEHAB_UDDIN.png',
+        sizes: '512x512',
+        type: 'image/png',
       }
     ],
   }
