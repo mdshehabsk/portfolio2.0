@@ -434,7 +434,7 @@ const ProjectsSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
-            Personal Projects
+            Portfolio Projects
           </h2>
           <p className="text-xl max-w-3xl mx-auto text-gray-600 dark:text-gray-400">
             A showcase of my development journey through various projects and technical challenges
