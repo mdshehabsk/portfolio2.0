@@ -50,6 +50,7 @@ export default function AboutSection() {
                     src={profilePhoto}
                     alt="MD Shehab Uddin - Full Stack Developer"
                     className="w-full h-full object-cover"
+                    placeholder='blur'
                   />
                 </div>
               </div>
