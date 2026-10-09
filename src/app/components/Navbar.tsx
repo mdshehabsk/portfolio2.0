@@ -3,7 +3,6 @@
 import { useTheme } from '@/hooks/useTheme';
 import { Moon, Sun, User, Briefcase, Code, FolderOpen } from 'lucide-react';
 import Link from 'next/link';
-import { useState } from 'react';
 
 const links = [
   { label: 'About',      link: '#about',     icon: User },

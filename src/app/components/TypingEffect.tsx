@@ -37,8 +37,10 @@ const TypingEffect: React.FC = () => {
           setDisplayText(displayText.substring(0, displayText.length - 1))
         }, 50)
       } else {
-        setCurrentText((prev) => (prev + 1) % typingTexts.length)
-        setIsTyping(true)
+        timeout = setTimeout(() => {
+          setCurrentText((prev) => (prev + 1) % typingTexts.length)
+          setIsTyping(true)
+        }, 250)
       }
     }
 
