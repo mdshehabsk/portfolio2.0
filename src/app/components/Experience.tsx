@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { Calendar, Building2, ExternalLink } from "lucide-react";
 import kodezenLogo from "@/image/kodezenteam_logo.jpeg";
 import themeSpellLogo from '@/image/themespell.png'
+import qubegridLogo from "@/image/qubegrid.png";
 const ExperienceSection = () => {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -43,6 +44,7 @@ const ExperienceSection = () => {
         "VPS",
       ],
       certificateLink: null,
+      logo: qubegridLogo,
     },
     {
       id: 2,
