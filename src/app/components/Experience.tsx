@@ -19,7 +19,34 @@ const ExperienceSection = () => {
   const experiences = [
     {
       id: 1,
-      role: "Part Time - React Js Developer",
+      role: "Full-Stack Developer",
+      company: "QubeGrid",
+      location: "BD, Dhaka",
+      startDate: "Jan 2026",
+      endDate: "Present",
+      isPresent: true,
+      overview: [
+        "Led technical decisions for a multi-vendor e-commerce platform, including backend architecture, database, ORM, and deployment strategy.",
+        "Built core e-commerce features and integrations for payments, delivery, SMS, webhooks, and order workflows.",
+        "Implemented custom-domain routing and automated SSL provisioning for vendor storefronts.",
+        "Built CI/CD and VPS deployment workflows and handled production infrastructure and troubleshooting.",
+        "Worked closely with product requirements to turn business needs into practical technical solutions.",
+      ],
+      technologies: [
+        "NestJS",
+        "TypeScript",
+        "Prisma",
+        "PostgreSQL",
+        "React",
+        "SSLCommerz",
+        "CI/CD",
+        "VPS",
+      ],
+      certificateLink: null,
+    },
+    {
+      id: 2,
+      role: "WordPress Developer",
       company: "Themespell",
       location: "BD, Dhaka",
       startDate: "Feb 2025",
@@ -34,7 +61,7 @@ const ExperienceSection = () => {
       logo: themeSpellLogo,
     },
     {
-      id: 1,
+      id: 3,
       role: "Frontend Engineer",
       company: "Kodezen",
       location: "BD, Jhenaidah",
@@ -61,7 +88,7 @@ const ExperienceSection = () => {
       logo: kodezenLogo,
     },
     {
-      id: 2,
+      id: 4,
       role: "Backend Developer Intern",
       company: "Practico - Inc",
       location: "India, Bangalore",
